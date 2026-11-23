@@ -1,0 +1,1381 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EcoLife | Protect Our Planet</title>
+
+    <meta name="description" content="Learn about air, water, and land pollution, their harmful effects, and practical ways to protect our environment.">
+
+    <style>
+        /* =========================
+           1. GLOBAL STYLES
+        ========================= */
+
+        :root {
+            --forest: #14532d;
+            --dark-green: #166534;
+            --leaf: #22c55e;
+            --mint: #dcfce7;
+            --light-mint: #f0fdf4;
+            --white: #ffffff;
+            --text: #26352d;
+            --muted: #64746a;
+            --shadow: 0 10px 30px rgba(20, 83, 45, 0.10);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--light-mint);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        section {
+            padding: 85px 8%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            color: var(--forest);
+            font-size: clamp(28px, 4vw, 42px);
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .section-title p {
+            color: var(--muted);
+            max-width: 700px;
+            margin: auto;
+        }
+
+        /* =========================
+           2. NAVIGATION
+        ========================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--forest);
+            padding: 15px 8%;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .logo {
+            color: #86efac;
+            font-size: 25px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 22px;
+        }
+
+        nav a {
+            color: white;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #86efac;
+        }
+
+        /* =========================
+           3. HERO SECTION
+        ========================= */
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 70px 8%;
+
+            background:
+                linear-gradient(
+                    rgba(10, 50, 25, 0.65),
+                    rgba(10, 50, 25, 0.82)
+                ),
+                url("https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1800&q=85")
+                center/cover;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            animation: fadeIn 1.2s ease;
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: rgba(134, 239, 172, 0.15);
+            color: #bbf7d0;
+            border: 1px solid rgba(134, 239, 172, 0.4);
+            border-radius: 30px;
+            padding: 8px 20px;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 6vw, 72px);
+            line-height: 1.15;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #86efac;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto 35px;
+            font-size: 18px;
+            color: #e5f5e9;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--leaf);
+            color: var(--forest);
+            padding: 14px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #86efac;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(34, 197, 94, 0.25);
+        }
+
+        /* =========================
+           4. POLLUTION TYPES
+        ========================= */
+
+        .pollution {
+            background: var(--light-mint);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border-bottom: 5px solid var(--leaf);
+            transition: transform 0.4s ease,
+                        box-shadow 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 18px 35px rgba(20, 83, 45, 0.17);
+        }
+
+        .card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card h3 {
+            color: var(--dark-green);
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: var(--muted);
+        }
+
+        /* =========================
+           5. DETAILED AIR POLLUTION
+        ========================= */
+
+        .air-pollution {
+            background: #e4f5e8;
+        }
+
+        .air-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .air-image {
+            position: relative;
+            height: 420px;
+            overflow: hidden;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #14532d, #22c55e);
+            box-shadow: var(--shadow);
+        }
+
+        .air-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-fallback-text {
+            display: none;
+            position: absolute;
+            inset: 0;
+            color: white;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .image-fallback-text span {
+            font-size: 80px;
+        }
+
+        .air-image.image-fallback .image-fallback-text {
+            display: flex;
+        }
+
+        .air-label {
+            display: inline-block;
+            color: var(--dark-green);
+            background: #dcfce7;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .air-intro-text h3 {
+            color: var(--forest);
+            font-size: 32px;
+            margin: 15px 0;
+        }
+
+        .air-intro-text p {
+            color: var(--muted);
+            margin-bottom: 15px;
+        }
+
+        .air-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 75px;
+        }
+
+        .air-detail-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            border-top: 5px solid var(--leaf);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease,
+                        box-shadow 0.3s ease;
+        }
+
+        .air-detail-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 30px rgba(20, 83, 45, 0.15);
+        }
+
+        .air-icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .air-detail-card h3 {
+            color: var(--forest);
+            font-size: 21px;
+            margin-bottom: 15px;
+        }
+
+        .air-detail-card ul {
+            padding-left: 20px;
+            color: var(--muted);
+        }
+
+        .air-detail-card li {
+            margin-bottom: 12px;
+        }
+
+        /* Air pollution solutions */
+
+        .air-solutions {
+            padding-top: 20px;
+        }
+
+        .air-solution-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .air-solution {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid var(--leaf);
+            transition: all 0.3s ease;
+        }
+
+        .air-solution:hover {
+            background: #dcfce7;
+            transform: translateY(-5px);
+        }
+
+        .air-solution span {
+            font-size: 35px;
+        }
+
+        .air-solution h3 {
+            color: var(--forest);
+            margin: 12px 0;
+        }
+
+        .air-solution p {
+            color: var(--muted);
+        }
+
+        .air-message {
+            background: linear-gradient(135deg, #14532d, #166534);
+            color: white;
+            text-align: center;
+            padding: 45px;
+            border-radius: 18px;
+            margin-top: 60px;
+        }
+
+        .air-message h3 {
+            font-size: 30px;
+            color: #86efac;
+            margin-bottom: 15px;
+        }
+
+        .air-message p {
+            max-width: 750px;
+            margin: auto;
+        }
+
+        /* =========================
+           6. EFFECTS OF POLLUTION
+        ========================= */
+
+        .effects {
+            background: var(--mint);
+        }
+
+        .effects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 55px;
+            align-items: center;
+        }
+
+        .effects-image {
+            overflow: hidden;
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+        }
+
+        .effects-image img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .effects-image:hover img {
+            transform: scale(1.04);
+        }
+
+        .effects-content h3 {
+            font-size: 29px;
+            color: var(--forest);
+            margin-bottom: 20px;
+        }
+
+        .effect-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 22px;
+            align-items: flex-start;
+        }
+
+        .effect-icon {
+            min-width: 45px;
+            height: 45px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        .effect-item h4 {
+            color: var(--dark-green);
+            margin-bottom: 5px;
+        }
+
+        .effect-item p {
+            color: var(--muted);
+        }
+
+        /* =========================
+           7. GENERAL SOLUTIONS
+        ========================= */
+
+        .solutions {
+            background: white;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .solution {
+            background: var(--light-mint);
+            padding: 30px;
+            border-radius: 14px;
+            border-left: 5px solid var(--leaf);
+            transition: all 0.3s ease;
+        }
+
+        .solution:hover {
+            background: var(--mint);
+            transform: translateY(-6px);
+            box-shadow: var(--shadow);
+        }
+
+        .solution-icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .solution h3 {
+            color: var(--forest);
+            font-size: 21px;
+            margin-bottom: 12px;
+        }
+
+        .solution p {
+            color: var(--muted);
+        }
+
+        /* =========================
+           8. CALL TO ACTION
+        ========================= */
+
+        .action {
+            text-align: center;
+            color: white;
+
+            background:
+                linear-gradient(
+                    rgba(20, 83, 45, 0.88),
+                    rgba(20, 83, 45, 0.92)
+                ),
+                url("https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1600&q=85")
+                center/cover;
+        }
+
+        .action h2 {
+            font-size: clamp(30px, 4vw, 44px);
+            margin-bottom: 20px;
+        }
+
+        .action p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #e5f5e9;
+        }
+
+        /* =========================
+           9. FOOTER
+        ========================= */
+
+        footer {
+            background: #103b2b;
+            color: #dcfce7;
+            padding: 30px 8%;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 8px;
+        }
+
+        footer a {
+            color: #86efac;
+        }
+
+        /* =========================
+           10. SCROLL ANIMATIONS
+        ========================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease,
+                        transform 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================
+           11. RESPONSIVE DESIGN
+        ========================= */
+
+        @media (max-width: 950px) {
+            .cards,
+            .solution-grid,
+            .air-details {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .effects-grid {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            header {
+                padding: 15px 5%;
+            }
+
+            .navbar {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            .cards,
+            .solution-grid,
+            .air-details,
+            .air-solution-grid,
+            .effects-grid,
+            .air-intro {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 60px 6%;
+            }
+
+            .hero {
+                min-height: 75vh;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .effects-image img {
+                height: 300px;
+            }
+
+            .air-image {
+                height: 280px;
+            }
+
+            .air-message {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation: none !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <header>
+        <div class="navbar">
+
+            <a href="#home" class="logo">
+                🌿 EcoLife
+            </a>
+
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#pollution">Pollution</a>
+                <a href="#air-pollution">Air Pollution</a>
+                <a href="#effects">Effects</a>
+                <a href="#solutions">Solutions</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- =========================
+         HERO SECTION
+    ========================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="hero-label">
+                🌍 Protect Our Planet
+            </div>
+
+            <h1>
+                Stop Pollution.<br>
+                <span>Save Our Planet.</span>
+            </h1>
+
+            <p>
+                Pollution is damaging our environment, harming wildlife,
+                and threatening human health. Together, we can create
+                a cleaner, greener, and healthier world.
+            </p>
+
+            <a href="#pollution" class="btn">
+                Explore the Problem ↓
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         TYPES OF POLLUTION
+    ========================= -->
+
+    <section class="pollution" id="pollution">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+
+                <h2>Types of Pollution</h2>
+
+                <p>
+                    Pollution occurs when harmful substances enter
+                    our environment and damage the natural world.
+                </p>
+
+            </div>
+
+            <div class="cards">
+
+                <article class="card reveal">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1532601224476-15c563a07d9a?auto=format&fit=crop&w=800&q=85"
+                        alt="Air pollution and industrial smoke"
+                        loading="lazy"
+                    >
+
+                    <div class="card-content">
+
+                        <h3>Air Pollution</h3>
+
+                        <p>
+                            Smoke from vehicles, factories, and burning
+                            fuels releases harmful gases and tiny particles
+                            into the air. These pollutants make breathing
+                            difficult and contribute to climate change.
+                        </p>
+
+                    </div>
+
+                </article>
+
+                <article class="card reveal">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=800&q=85"
+                        alt="Water in a natural environment"
+                        loading="lazy"
+                    >
+
+                    <div class="card-content">
+
+                        <h3>Water Pollution</h3>
+
+                        <p>
+                            Plastic waste, sewage, oil spills, and harmful
+                            chemicals contaminate rivers, lakes, and oceans.
+                            Polluted water threatens aquatic life and
+                            makes clean drinking water harder to obtain.
+                        </p>
+
+                    </div>
+
+                </article>
+
+                <article class="card reveal">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?auto=format&fit=crop&w=800&q=85"
+                        alt="Plastic waste and rubbish"
+                        loading="lazy"
+                    >
+
+                    <div class="card-content">
+
+                        <h3>Land Pollution</h3>
+
+                        <p>
+                            Littering, dumping waste, and using harmful
+                            chemicals damage soil and natural habitats.
+                            Land pollution can affect plant growth,
+                            wildlife, and the food we depend on.
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         DETAILED AIR POLLUTION
+    ========================= -->
+
+    <section class="air-pollution" id="air-pollution">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+
+                <h2>Air Pollution: A Silent Threat</h2>
+
+                <p>
+                    Air pollution occurs when harmful gases, smoke,
+                    dust, and tiny particles enter the atmosphere.
+                    It is one of the major environmental challenges
+                    affecting people, animals, and the planet.
+                </p>
+
+            </div>
+
+            <!-- Air pollution image and introduction -->
+
+            <div class="air-intro">
+
+                <div class="air-image reveal">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=1200&q=85"
+                        alt="Industrial factories and air pollution"
+                        loading="lazy"
+                        onerror="this.style.display='none'; this.parentElement.classList.add('image-fallback');"
+                    >
+
+                    <div class="image-fallback-text">
+                        <span>🌫️</span>
+                        <p>Air Pollution</p>
+                    </div>
+
+                </div>
+
+                <div class="air-intro-text reveal">
+
+                    <span class="air-label">
+                        CLEAN AIR IS A HUMAN NEED
+                    </span>
+
+                    <h3>What Is Air Pollution?</h3>
+
+                    <p>
+                        Air pollution is the contamination of indoor
+                        or outdoor air by substances that can harm
+                        human health and the environment.
+                    </p>
+
+                    <p>
+                        Pollutants include fine particles, carbon
+                        monoxide, nitrogen dioxide, sulfur dioxide,
+                        and ground-level ozone.
+                    </p>
+
+                    <p>
+                        These pollutants can come from vehicles,
+                        factories, power plants, burning waste,
+                        and natural events such as wildfires.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Causes, health effects, environmental effects -->
+
+            <div class="air-details">
+
+                <div class="air-detail-card reveal">
+
+                    <div class="air-icon">🏭</div>
+
+                    <h3>Major Causes</h3>
+
+                    <ul>
+                        <li>Smoke and gases from factories and power plants.</li>
+
+                        <li>Exhaust emissions from cars, buses, and motorcycles.</li>
+
+                        <li>Burning coal, petrol, diesel, and other fossil fuels.</li>
+
+                        <li>Burning rubbish, crop residues, and other waste.</li>
+
+                        <li>Dust from construction sites and roads.</li>
+
+                        <li>Deforestation and uncontrolled wildfires.</li>
+                    </ul>
+
+                </div>
+
+                <div class="air-detail-card reveal">
+
+                    <div class="air-icon">🫁</div>
+
+                    <h3>Effects on Human Health</h3>
+
+                    <ul>
+                        <li>Difficulty breathing and irritation of the eyes and throat.</li>
+
+                        <li>Worsening of asthma and other lung diseases.</li>
+
+                        <li>Increased risk of heart disease and stroke.</li>
+
+                        <li>Greater health risks for children and older adults.</li>
+
+                        <li>Long-term exposure can increase the risk of lung cancer.</li>
+
+                        <li>Severe pollution can contribute to premature deaths.</li>
+                    </ul>
+
+                </div>
+
+                <div class="air-detail-card reveal">
+
+                    <div class="air-icon">🌍</div>
+
+                    <h3>Effects on the Environment</h3>
+
+                    <ul>
+                        <li>Greenhouse gases contribute to global warming.</li>
+
+                        <li>Smog reduces visibility and affects air quality.</li>
+
+                        <li>Acid rain can damage forests, soil, and waterways.</li>
+
+                        <li>Air pollutants can harm crops and natural vegetation.</li>
+
+                        <li>Pollution can damage wildlife habitats and ecosystems.</li>
+
+                        <li>Some pollutants contribute to ground-level ozone.</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <!-- Air pollution solutions -->
+
+            <div class="air-solutions">
+
+                <div class="section-title reveal">
+
+                    <h2>How Can We Reduce Air Pollution?</h2>
+
+                    <p>
+                        Cleaner energy, better transport, responsible
+                        waste management, and strong environmental
+                        policies can help improve air quality.
+                    </p>
+
+                </div>
+
+                <div class="air-solution-grid">
+
+                    <div class="air-solution reveal">
+
+                        <span>🚲</span>
+
+                        <h3>Use Cleaner Transport</h3>
+
+                        <p>
+                            Walk, cycle, carpool, or use public transport
+                            whenever possible. Maintain vehicles properly
+                            to reduce harmful exhaust emissions.
+                        </p>
+
+                    </div>
+
+                    <div class="air-solution reveal">
+
+                        <span>☀️</span>
+
+                        <h3>Switch to Clean Energy</h3>
+
+                        <p>
+                            Support solar and wind energy, improve energy
+                            efficiency, and reduce unnecessary electricity
+                            use to lower emissions from power generation.
+                        </p>
+
+                    </div>
+
+                    <div class="air-solution reveal">
+
+                        <span>🌳</span>
+
+                        <h3>Protect Green Spaces</h3>
+
+                        <p>
+                            Protect forests and plant suitable native trees.
+                            Trees support ecosystems and can help improve
+                            local environments.
+                        </p>
+
+                    </div>
+
+                    <div class="air-solution reveal">
+
+                        <span>♻️</span>
+
+                        <h3>Stop Open Burning</h3>
+
+                        <p>
+                            Avoid burning plastic, household rubbish,
+                            and crop residues. Use safer waste collection
+                            and disposal methods.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="air-message reveal">
+
+                <h3>Every Breath Matters</h3>
+
+                <p>
+                    Clean air is essential for a healthy life.
+                    By reducing pollution at its source and supporting
+                    cleaner communities, we can protect the air we breathe
+                    and create a healthier future for everyone.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         EFFECTS OF POLLUTION
+    ========================= -->
+
+    <section class="effects" id="effects">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+
+                <h2>How Pollution Affects Our World</h2>
+
+                <p>
+                    Pollution affects every part of our environment,
+                    from the air we breathe to the water we drink.
+                </p>
+
+            </div>
+
+            <div class="effects-grid">
+
+                <div class="effects-image reveal">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1000&q=85"
+                        alt="A beautiful green forest"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <div class="effects-content reveal">
+
+                    <h3>Why Should We Care?</h3>
+
+                    <div class="effect-item">
+
+                        <div class="effect-icon">🫁</div>
+
+                        <div>
+                            <h4>Human Health</h4>
+
+                            <p>
+                                Air pollution can cause respiratory
+                                diseases and increase the risk of
+                                heart and lung problems.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="effect-item">
+
+                        <div class="effect-icon">🐠</div>
+
+                        <div>
+                            <h4>Wildlife</h4>
+
+                            <p>
+                                Plastic waste and chemical pollution
+                                can injure animals, destroy habitats,
+                                and threaten biodiversity.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="effect-item">
+
+                        <div class="effect-icon">🌡️</div>
+
+                        <div>
+                            <h4>Climate Change</h4>
+
+                            <p>
+                                Greenhouse gases released by burning
+                                fossil fuels contribute to global
+                                warming and changing weather patterns.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="effect-item">
+
+                        <div class="effect-icon">🌱</div>
+
+                        <div>
+                            <h4>Soil and Plants</h4>
+
+                            <p>
+                                Contaminated soil can harm plant growth,
+                                reduce soil quality, and affect
+                                food production.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         GENERAL SOLUTIONS
+    ========================= -->
+
+    <section class="solutions" id="solutions">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+
+                <h2>How Can We Reduce Pollution?</h2>
+
+                <p>
+                    Pollution can be reduced through responsible
+                    choices, better technology, and environmental
+                    protection. Everyone can help.
+                </p>
+
+            </div>
+
+            <div class="solution-grid">
+
+                <div class="solution reveal">
+
+                    <div class="solution-icon">🌳</div>
+
+                    <h3>Plant and Protect Trees</h3>
+
+                    <p>
+                        Protect forests and plant native trees.
+                        Trees absorb carbon dioxide, provide habitats,
+                        and support healthy ecosystems.
+                    </p>
+
+                </div>
+
+                <div class="solution reveal">
+
+                    <div class="solution-icon">♻️</div>
+
+                    <h3>Reduce, Reuse, Recycle</h3>
+
+                    <p>
+                        Avoid single-use plastics, reuse useful items,
+                        recycle suitable materials, and dispose of
+                        waste responsibly.
+                    </p>
+
+                </div>
+
+                <div class="solution reveal">
+
+                    <div class="solution-icon">🚲</div>
+
+                    <h3>Choose Cleaner Transport</h3>
+
+                    <p>
+                        Walk, cycle, carpool, or use public transport
+                        when possible to reduce fuel consumption
+                        and vehicle emissions.
+                    </p>
+
+                </div>
+
+                <div class="solution reveal">
+
+                    <div class="solution-icon">💧</div>
+
+                    <h3>Protect Our Water</h3>
+
+                    <p>
+                        Never dump rubbish, oil, or chemicals into
+                        drains and waterways. Support proper
+                        wastewater treatment.
+                    </p>
+
+                </div>
+
+                <div class="solution reveal">
+
+                    <div class="solution-icon">☀️</div>
+
+                    <h3>Use Clean Energy</h3>
+
+                    <p>
+                        Support renewable energy such as solar
+                        and wind power. Save electricity by
+                        switching off unused appliances.
+                    </p>
+
+                </div>
+
+                <div class="solution reveal">
+
+                    <div class="solution-icon">🌍</div>
+
+                    <h3>Spread Awareness</h3>
+
+                    <p>
+                        Join community cleanups, educate others,
+                        support environmental protection, and
+                        encourage responsible waste management.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         CALL TO ACTION
+    ========================= -->
+
+    <section class="action">
+
+        <div class="container reveal">
+
+            <h2>Be Part of the Solution</h2>
+
+            <p>
+                A cleaner planet begins with the choices we make today.
+                Protect nature, reduce waste, and inspire others to do
+                the same. Every responsible action matters.
+            </p>
+
+            <a href="#home" class="btn">
+                Start Making a Difference ↑
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>🌿 EcoLife | Protect Our Planet, Protect Our Future</p>
+
+        <p>
+            Educational Website | Made with HTML, CSS and JavaScript
+        </p>
+
+    </footer>
+
+    <!-- =========================
+         SCROLL ANIMATIONS
+    ========================= -->
+
+    <script>
+        const revealElements = document.querySelectorAll(".reveal");
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach((entry) => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("active");
+
+                        observer.unobserve(entry.target);
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.15
+            }
+        );
+
+        revealElements.forEach((element) => {
+            observer.observe(element);
+        });
+    </script>
+
+</body>
+</html>
+
